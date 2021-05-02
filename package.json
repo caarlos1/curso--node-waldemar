@@ -1,0 +1,29 @@
+{
+  "name": "estudos-node-curso-01",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "yarn build && node dist/src/index.js",
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/caarlos1/estudos-node-curso-01.git"
+  },
+  "author": "Carlos Roberto <crpu4a@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/caarlos1/estudos-node-curso-01/issues"
+  },
+  "homepage": "https://github.com/caarlos1/estudos-node-curso-01#readme",
+  "devDependencies": {
+    "@types/module-alias": "^2.0.0",
+    "@types/node": "^15.0.1",
+    "typescript": "^4.2.4"
+  },
+  "dependencies": {
+    "module-alias": "^2.2.2"
+  }
+}
