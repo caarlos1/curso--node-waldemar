@@ -1,11 +1,12 @@
-import supertest from 'supertest'
+import { Controller, Get } from '@overnightjs/core'
+import { Request, Response } from 'express'
 
-// Descrevendo bloco de teste:
-describe('Beacth forecast functional tests', () => {
-    it('should return a forecast with just a few times', async () => {
-        const { body, status } = await global.testRequest.get('/forecast')
-        expect(status).toBe(200) // Espero que seja estritamente igual.
-        expect(body).toEqual( // Espero que tenha o mesmo valor (menos estrito que o toBe)
+@Controller('forecast') // Cria rota automática na API.
+export class ForecastController {
+
+    @Get('') // O get em /forecast/ vai executar essa função.
+    public getForecastForLoggedUser(_: Request, res: Response): void {
+        res.send(
             [{
                 "time": "2020-04-26T00:00:00+00:00",
                 "forecast": [{
@@ -40,8 +41,5 @@ describe('Beacth forecast functional tests', () => {
                 }]
             }]
         )
-
-        
-
-    })
-})
+    }
+}
