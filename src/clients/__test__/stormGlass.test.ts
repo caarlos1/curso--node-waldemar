@@ -11,7 +11,9 @@ describe('StormGlass client', () => {
     const lng = 151.289824
 
     // Fiz um mock para que a função axios.get retorne esse objeto.
-    axios.get = jest.fn().mockResolvedValue(stormGlassWather3HoursFixture) 
+    axios.get = jest
+      .fn()
+      .mockResolvedValue({ data: stormGlassWather3HoursFixture })
 
     const stormGlass = new StormGlass(axios)
     const response = await stormGlass.fetchPoints(lat, lng)
