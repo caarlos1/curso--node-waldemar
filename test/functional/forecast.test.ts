@@ -1,5 +1,3 @@
-import supertest from 'supertest'
-
 // Descrevendo bloco de teste:
 describe('Beacth forecast functional tests', () => {
   it('should return a forecast with just a few times', async () => {
