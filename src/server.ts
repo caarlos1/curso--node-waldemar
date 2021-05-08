@@ -38,4 +38,10 @@ export class SetupServer extends Server {
   public getApp(): Application {
     return this.app // Retornando o servidor "app" heradodo do overnight
   }
+
+  public start(): void {
+    this.app.listen(this.port, () => {
+      console.info('Server listeing of port:', this.port)
+    })
+  }
 }

@@ -60,11 +60,11 @@ export class StormGlass {
   public async fetchPoints(lat: number, lng: number): Promise<ForecastPoint[]> {
     try {
       const response = await this.request.get<StormGlassForecastResponse>(
-        `${stormGlassResourceConfig.get('apiUrl')}/weather/point?params=${
+        `${stormGlassResourceConfig.get(
+          'apiUrl'
+        )}/weather/point?&lat=${lat}&lng=${lng}&params=${
           this.stormGlassAPIParams
-        }&source=${
-          this.stormGlassAPISource
-        }&end=1592113802&lat=${lat}&lng=${lng}`,
+        }&source=${this.stormGlassAPISource}`,
         {
           headers: {
             Authorization: stormGlassResourceConfig.get('apiToken'),
@@ -101,8 +101,6 @@ export class StormGlass {
 
   // Método que valida os Points
   private isValidPoint(point: Partial<StormGlassPoint>): boolean {
-    // Verifica se existem todos os valores válidos.
-    // Não entendi direito o que o ? faz ali em baixo.
     return !!(
       point.time &&
       point.waveHeight?.[this.stormGlassAPISource] &&
